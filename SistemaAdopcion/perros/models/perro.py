@@ -1,12 +1,23 @@
 from django.db import models
+from ..enums.razaEnum import RazaPerro
+from ..enums.estadoSaludEnum import EstadoSalud
+# from ..enums.estadoSaludEnum import EstadoSalud
 
 class Perro(models.Model):
     nombre = models.CharField(max_length=100)
-    raza = models.CharField(max_length=100)
-    edad = models.PositiveIntegerField()
-    tamaño = models.CharField(max_length=50)
-    peso = models.FloatField()
-    estado_salud = models.CharField(max_length=100)
+    raza = models.CharField(
+        max_length=20,
+        choices=RazaPerro.choices,
+        default=RazaPerro.OTRO
+    )
+    edad = models.PositiveIntegerField(default=0) 
+    tamaño = models.CharField(max_length=50, default=0)
+    peso = models.FloatField(default=0)
+    estado_salud =  models.CharField(
+        max_length=20,
+        choices=EstadoSalud.choices,
+        default=EstadoSalud.SALUDABLE
+    )
     vacunado = models.BooleanField(default=False)
     estado_adopcion = models.CharField(max_length=50, default='disponible')
 
