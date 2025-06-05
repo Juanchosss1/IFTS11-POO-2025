@@ -1,9 +1,9 @@
 from django.contrib import admin
-from .models import Perro, UsuarioAdoptante, Postulacion
+from models import Perro, UsuarioAdoptante, SistemaAdopcion
 
 admin.site.register(Perro)
 admin.site.register(UsuarioAdoptante)
-admin.site.register(Postulacion)
+admin.site.register(SistemaAdopcion)
 
 class SistemaAdopcion:
     def __init__(self):

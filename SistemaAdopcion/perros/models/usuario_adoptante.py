@@ -1,13 +1,11 @@
-class UsuarioAdoptante:
-    def __init__(self, nombre, apellido, email, telefono, direccion, preferencia_mascota=None):
-        self.nombre = nombre
-        self.apellido = apellido
-        self.email = email
-        self.telefono = telefono
-        self.direccion = direccion
-        self.preferencia_mascota = preferencia_mascota
-        self.perro_adoptado = None
-        self.historial_adopciones = []  # Para guardar el historial
+from django.db import models
+from django.contrib.auth.models import User
+
+class UsuarioAdoptante(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    telefono = models.CharField(max_length=20)
+    direccion = models.CharField(max_length=200)
+    preferencia_mascota = models.CharField(max_length=100, blank=True, null=True)
 
     def registrarse(self):
         print(f"Usuario registrado: {self.nombre} {self.apellido}")
