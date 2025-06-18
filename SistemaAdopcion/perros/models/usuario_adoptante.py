@@ -47,7 +47,6 @@ class UsuarioAdoptante(models.Model):
         if pref_edad: self.pref_edad = pref_edad
         if pref_tamaño: self.pref_tamaño = pref_tamaño
         if pref_estado_salud: self.pref_estado_salud = pref_estado_salud
-        print("Datos modificados correctamente.")
 
     def adoptar_perro(self, perro):
         self.perro_adoptado = perro
