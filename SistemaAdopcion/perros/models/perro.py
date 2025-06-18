@@ -1,7 +1,8 @@
 from django.db import models
 from ..enums.razaEnum import RazaPerro
 from ..enums.estadoSaludEnum import EstadoSalud
-# from ..enums.estadoSaludEnum import EstadoSalud
+from ..enums.edadEnum import Edad
+from ..enums.tamañoEnum import Tamaño
 
 class Perro(models.Model):
     nombre = models.CharField(max_length=100)
@@ -10,8 +11,16 @@ class Perro(models.Model):
         choices=RazaPerro.choices,
         default=RazaPerro.OTRO
     )
-    edad = models.PositiveIntegerField(default=0) 
-    tamaño = models.CharField(max_length=50, default=0)
+    edad =  models.CharField(
+        max_length=20,
+        choices=Edad.choices,
+        default=Edad.CACHORRO
+    )
+    tamaño =  models.CharField(
+        max_length=20,
+        choices=Tamaño.choices,
+        default=Tamaño.CHICO
+    )
     peso = models.FloatField(default=0)
     estado_salud =  models.CharField(
         max_length=20,

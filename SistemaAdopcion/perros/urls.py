@@ -22,4 +22,5 @@ urlpatterns = [
     path('postular/<int:perro_id>/', views.postular_perro, name='postular_perro'),
     path('confirmar/<int:postulacion_id>/', views.confirmar_adopcion, name='confirmar_adopcion'),
     path('mis_postulaciones/', views.mis_postulaciones, name='mis_postulaciones'),
+    path('panel/', views.panel_adopcion, name='panel_adopcion')
 ]
