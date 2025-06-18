@@ -7,7 +7,7 @@ class UsuarioAdoptante:
         self.direccion = direccion
         self.preferencia_mascota = preferencia_mascota
         self.perro_adoptado = None
-        self.historial_adopciones = []  # Para guardar el historial
+        self.historial_adopciones = [] 
 
     def registrarse(self):
         print(f"Usuario registrado: {self.nombre} {self.apellido}")
