@@ -1,7 +1,7 @@
 from django.db import models
 
 class Tamaño(models.TextChoices):
-    CHICO = 'chico', 'Chico'
-    MEDIANO = 'mediano', 'Mediano'
-    GRANDE = 'grande', 'Grande'
-    GIGANTE = 'gigante', 'Gigante'
+    CHICO = '1', 'Chico'
+    MEDIANO = '2', 'Mediano'
+    GRANDE = '3', 'Grande'
+    GIGANTE = '4', 'Gigante'

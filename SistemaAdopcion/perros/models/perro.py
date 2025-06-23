@@ -42,17 +42,17 @@ class Perro(models.Model):
         
     def MostrarInfo(self):
         print(f"Nombre: {self.nombre}")
-        print(f"Raza: {self.raza}")
+        print(f"Raza: {self.get_raza_display()}")
         print(f"Edad: {self.edad} años")
-        print(f"Tamaño: {self.tamaño}")
+        print(f"Tamaño: {self.get_tamaño_display()}")
         print(f"Peso: {self.peso} kg")
-        print(f"Estado de salud: {self.estado_salud}")
+        print(f"Estado de salud: {self.get_estado_salud_display()}")
         print(f"Vacunado: {'Sí' if self.vacunado else 'No'}")
         print(f"Estado de adopción: {self.estado_adopcion}")
 
     def ActualizarEstadoSalud(self, nuevo_estado):
         self.estado_salud = nuevo_estado
-        print(f"El estado de salud de {self.nombre} ha sido actualizado a: {self.estado_salud}")
+        print(f"El estado de salud de {self.nombre} ha sido actualizado a: '{self.get_estado_salud_display()}'")
 
     def Vacunar(self):
         if not self.vacunado:
