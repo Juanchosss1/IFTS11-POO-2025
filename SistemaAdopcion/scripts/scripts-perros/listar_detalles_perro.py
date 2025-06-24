@@ -5,7 +5,9 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from perros import init_django
 init_django('SistemaAdopcion.settings')
 
+from perros.services.perro_service import PerroService
 from perros.models import Perro
+
 print("Perros disponibles:")
 for perro in Perro.objects.all():
     print(f"{perro.id}: {perro.nombre} ({perro.get_estado_salud_display()})")

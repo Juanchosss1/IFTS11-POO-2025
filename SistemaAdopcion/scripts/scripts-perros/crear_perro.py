@@ -1,17 +1,15 @@
 import sys
 import os
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+)
 from perros import init_django
 init_django('SistemaAdopcion.settings')
 
-from perros.services.sistema_adopcion_service import SistemaAdopcion
+from perros.services.perro_service import PerroService
 from perros.enums.razaEnum import RazaPerro
 from perros.enums.estadoSaludEnum import EstadoSalud
 from perros.enums.edadEnum import Edad
 from perros.enums.tamañoEnum import Tamaño
-
-sistema = SistemaAdopcion()
 
 print("=== Crear nuevo perro ===")
 nombre = input("Nombre: ")
@@ -46,7 +44,7 @@ estado_salud = input("Estado de salud (elija un numero): ")
 print("-" * 40)
 vacunado = input("¿Vacunado? (s/n): ").lower() == 's'
 
-perro = sistema.agregar_perro(
+perro = PerroService.agregar_perro(
     nombre=nombre,
     raza=raza,
     edad=edad,

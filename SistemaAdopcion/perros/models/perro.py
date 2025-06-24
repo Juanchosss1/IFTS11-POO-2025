@@ -28,35 +28,17 @@ class Perro(models.Model):
         default=EstadoSalud.SALUDABLE
     )
     vacunado = models.BooleanField(default=False)
-    estado_adopcion = models.CharField(max_length=50, default='disponible')
+
+    ESTADO_ADOPCION_CHOICES = [
+        ('1', 'Disponible'),
+        ('2', 'Adoptado'),
+    ]
+
+    estado_adopcion = models.CharField(
+        max_length=20,
+        choices=ESTADO_ADOPCION_CHOICES,
+        default='disponible'
+    )
 
     def __str__(self):
         return f"{self.nombre} ({self.raza})"
-
-    def Adoptar(self):
-        if self.estado_adopcion == "disponible":
-            self.estado_adopcion = "adoptado"
-            print(f"{self.nombre} ha sido adoptado.")
-        else:
-            print(f"{self.nombre} no está disponible para adopción.")
-        
-    def MostrarInfo(self):
-        print(f"Nombre: {self.nombre}")
-        print(f"Raza: {self.get_raza_display()}")
-        print(f"Edad: {self.edad} años")
-        print(f"Tamaño: {self.get_tamaño_display()}")
-        print(f"Peso: {self.peso} kg")
-        print(f"Estado de salud: {self.get_estado_salud_display()}")
-        print(f"Vacunado: {'Sí' if self.vacunado else 'No'}")
-        print(f"Estado de adopción: {self.estado_adopcion}")
-
-    def ActualizarEstadoSalud(self, nuevo_estado):
-        self.estado_salud = nuevo_estado
-        print(f"El estado de salud de {self.nombre} ha sido actualizado a: '{self.get_estado_salud_display()}'")
-
-    def Vacunar(self):
-        if not self.vacunado:
-            self.vacunado = True
-            print(f"{self.nombre} ha sido vacunado.")
-        else:
-            print(f"{self.nombre} ya está vacunado.")

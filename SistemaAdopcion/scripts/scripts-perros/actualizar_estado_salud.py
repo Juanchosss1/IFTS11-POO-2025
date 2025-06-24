@@ -1,10 +1,11 @@
 import sys
 import os
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 from perros import init_django
 init_django('SistemaAdopcion.settings')
 
+from perros.services.perro_service import PerroService
 from perros.models import Perro
 from perros.enums.estadoSaludEnum import EstadoSalud
 
@@ -21,6 +22,5 @@ for estado in EstadoSalud:
 
 nuevo_estado = input("Ingrese el valor del nuevo estado de salud: ")
 
-perro.ActualizarEstadoSalud(nuevo_estado)
-perro.save()
+PerroService.actualizar_estado_salud(perro, nuevo_estado)
 print("Estado de salud actualizado correctamente.")
