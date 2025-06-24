@@ -10,5 +10,5 @@ from perros.services.sistema_adopcion_service import SistemaAdopcion
 
 sistema = SistemaAdopcion()
 print("Perros en adopción:")
-for perro in sistema.listar_perros_disponibles():
+for perro in sistema.ver_perros_disponibles():
     print(f"{perro.nombre} ({perro.get_raza_display()})")

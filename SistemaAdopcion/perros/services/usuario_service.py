@@ -25,6 +25,19 @@ class UserService:
             pref_tamaño=pref_tamaño,
             pref_estado_salud=pref_estado_salud
         )
+    
+    
+    @staticmethod
+    def mostrar_detalle(usuario):
+        print(f"Username: {usuario.user.username}")
+        print(f"Email: {usuario.user.email}")
+        print(f"Nombre completo: {usuario.user.first_name}, {usuario.user.last_name}")
+        print(f"Teléfono: {usuario.telefono}")
+        print(f"Dirección: {usuario.direccion}")
+        print(f"Raza preferida: {usuario.get_pref_raza_display()}")
+        print(f"Edad preferida: {usuario.get_pref_edad_display()}")
+        print(f"Tamaño preferido: {usuario.get_pref_tamaño_display()}")
+        print(f"Estado de salud preferido: {usuario.get_pref_estado_salud_display()}")
 
     @staticmethod
     def modificar_usuario(usuario, **userDto):
