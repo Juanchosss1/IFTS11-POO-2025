@@ -1,7 +1,7 @@
 import sys
 import os
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+)
 from perros import init_django
 init_django('SistemaAdopcion.settings')
 
@@ -18,4 +18,4 @@ for perro in Perro.objects.filter(id=perro_id):
     print("-" * 40)
     print(f"{perro.nombre.upper()}")
     print("-" * 40)
-    perro.MostrarInfo()
+    PerroService.mostrar_detalle(perro)

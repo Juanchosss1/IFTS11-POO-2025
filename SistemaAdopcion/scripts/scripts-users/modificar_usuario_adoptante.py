@@ -13,8 +13,8 @@ from perros.enums.estadoSaludEnum import EstadoSalud
 
 usuarios = UserService.listar_usuarios()
 for usuario in usuarios:
-    print(f"{usuario.id}: {usuario.user.username} ({usuario.user.first_name} {usuario.user.last_name})")
-
+    print(f"{usuario.id}: {usuario.user.first_name}, {usuario.user.last_name} ({usuario.user.email})")
+    
 usuario_id = int(input("Ingrese el ID del usuario a modificar: "))
 usuario = usuarios.get(id=usuario_id)
 

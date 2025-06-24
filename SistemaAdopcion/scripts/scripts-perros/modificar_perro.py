@@ -20,7 +20,7 @@ perro_id = int(input("Ingrese el ID del perro a modificar: "))
 perro = Perro.objects.get(id=perro_id)
 
 while True:
-    PerroService.mostrar_info(perro)
+    PerroService.mostrar_detalle(perro)
 
     print("-" * 40)
     print("\n¿Qué desea modificar?")

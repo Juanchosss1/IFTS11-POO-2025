@@ -7,7 +7,7 @@ class PerroService:
        return Perro.objects.all()
     
     @staticmethod
-    def listar_perros_disponibles():
+    def ver_perros_disponibles():
         return Perro.objects.filter(estado_adopcion='disponible')
     
     @staticmethod
@@ -28,7 +28,7 @@ class PerroService:
             print(f"{perro.nombre} no está disponible para adopción.")
 
     @staticmethod
-    def mostrar_info(perro):
+    def mostrar_detalle(perro):
         print(f"Nombre: {perro.nombre}")
         print(f"Raza: {perro.get_raza_display()}")
         print(f"Edad: {perro.edad} años")
