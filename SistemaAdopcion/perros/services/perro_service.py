@@ -3,7 +3,7 @@ from perros.models import Perro
 class PerroService:
     
     @staticmethod
-    def listar_perros():
+    def ver_perros():
        return Perro.objects.all()
     
     @staticmethod
